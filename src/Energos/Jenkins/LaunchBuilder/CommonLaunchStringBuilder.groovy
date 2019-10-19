@@ -22,6 +22,11 @@ class CommonLaunchStringBuilder extends BasicLaunchStringBuilder{
     def disableStartupMessages = true
     def ucCode = ''
 
+    @Override
+    def buildParams() {
+
+    }
+
     def setDbFromPath(def path){
         if (path.toString().contains('\\'))
             dbKindOfConnectionString = KindOfConnectionString.ServerPath
