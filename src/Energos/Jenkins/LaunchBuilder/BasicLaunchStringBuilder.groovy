@@ -23,7 +23,6 @@ class BasicLaunchStringBuilder{
     }
 
     def buildParams(){
-        params.clear()
     }
 
 }

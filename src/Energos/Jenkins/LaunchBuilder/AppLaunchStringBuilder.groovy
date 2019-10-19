@@ -28,7 +28,18 @@ class AppLaunchStringBuilder extends BasicLaunchStringBuilder {
     }
 
     protected def resetParams(){
+        params.clear()
+    }
 
+    def bat(def withResetParams = true){
+        def allParams = common.buildParams() + this.buildParams()
+        if (withResetParams==true)
+            resetParams()
+        getLaunchString(allParams)
+    }
+
+    def buildParams(){
+        params
     }
 
 }

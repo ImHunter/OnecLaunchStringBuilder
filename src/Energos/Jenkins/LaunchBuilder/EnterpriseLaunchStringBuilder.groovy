@@ -14,7 +14,11 @@ class EnterpriseLaunchStringBuilder extends AppLaunchStringBuilder{
     }
 
     def batLaunchAndClose(def withUpdateMetadata = null){
-
+        if (serviceEpf != null)
+            addParam('/Execute', serviceEpf)
+        if (withUpdateMetadata==true)
+            addParam('/С', 'ЗапуститьОбновлениеИнформационнойБазы')
+        bat()
     }
 
 }
