@@ -38,7 +38,6 @@ class AppLaunchStringBuilder extends BasicLaunchStringBuilder {
         getLaunchString(allParams)
     }
 
-    @Override
     def buildParams(){
         params
     }

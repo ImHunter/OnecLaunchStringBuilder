@@ -2,7 +2,9 @@ package Energos.Jenkins.LaunchBuilder
 
 class EnterpriseLaunchStringBuilder extends AppLaunchStringBuilder{
 
-    def serviceEpf
+    private def serviceEpf
+    private def useThinClient = false
+    private def runModeOrdinaryApplication = false
 
     EnterpriseLaunchStringBuilder(Object common) {
         super(common)
@@ -10,6 +12,11 @@ class EnterpriseLaunchStringBuilder extends AppLaunchStringBuilder{
 
     def setServiceEpf(def pathToEpf){
         serviceEpf = pathToEpf
+        this
+    }
+
+    def setRunModeOrdinaryApplication(){
+        runModeOrdinaryApplication = true
         this
     }
 

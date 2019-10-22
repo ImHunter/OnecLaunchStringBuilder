@@ -2,7 +2,7 @@ package Energos.Jenkins.LaunchBuilder
 
 class CommonLaunchStringBuilder extends BasicLaunchStringBuilder{
 
-    private enum KindOfConnectionString {
+    protected enum KindOfConnectionString {
         FilePath,
         ServerPath,
         WS,
@@ -10,7 +10,7 @@ class CommonLaunchStringBuilder extends BasicLaunchStringBuilder{
         IBName
     }
 
-    private def dbKindOfConnectionString = null
+    protected def dbKindOfConnectionString = null
     private def dbConnectionString = null
 
     private def userName = null
@@ -22,13 +22,13 @@ class CommonLaunchStringBuilder extends BasicLaunchStringBuilder{
     def disableStartupMessages = true
     def ucCode = ''
 
-    @Override
-    def buildParams() {
+    def buildParams(def useThinClient = false) {
 
     }
 
     def setDbFromPath(def path){
-        if (path.toString().contains('\\'))
+        def strPath = path.toString()
+        if (strPath.contains('\\') && !strPath.startsWith('\\') && !strPath.contains(':'))
             dbKindOfConnectionString = KindOfConnectionString.ServerPath
         else
             dbKindOfConnectionString = KindOfConnectionString.FilePath
@@ -60,14 +60,17 @@ class CommonLaunchStringBuilder extends BasicLaunchStringBuilder{
         if (uPwd!=null)
             userPassword = uPwd
         userBySystem = false
+        this
     }
 
     def setUCCode(def ucCode){
         this.ucCode = ucCode
+        this
     }
 
     def setPathToBin(def pathToBin){
         this.pathToBin = pathToBin
+        this
     }
 
 }

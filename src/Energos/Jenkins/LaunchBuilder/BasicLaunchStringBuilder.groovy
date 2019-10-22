@@ -22,7 +22,4 @@ class BasicLaunchStringBuilder{
         this
     }
 
-    def buildParams(){
-    }
-
 }
